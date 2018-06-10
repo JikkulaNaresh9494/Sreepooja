@@ -1,0 +1,26 @@
+<nav class="navbar header1" >
+    <div class="container">
+      <div class="navbar-header col-sm-7">
+        <a class="navbar-brand" href="#">Help
+            <i class="glyphicon glyphicon-phone" aria-hidden="true"></i>+91 7400462718
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+          <!-- <li><a [routerLink]="['registerpurohith']" href="#">Register as purohith</a></li> -->
+           
+        <li><a *ngIf=" !isuservalid" [routerLink]="['login']" href="#">Login</a></li>
+        <li><a *ngIf=" !isuservalid" [routerLink]="['register']" href="#">Register</a></li>
+        <li class="dropdown" *ngIf=" isuservalid">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome !{{userdetails.Fullname}}
+            <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a *ngIf=" isuservalid"  [routerLink]="['updateprofile']">Update Profile</a></li>
+              <li><a *ngIf=" isuservalid"  [routerLink]="['myorder']">Myorders</a></li>
+              <li><a *ngIf=" isuservalid" [routerLink]="['changepassword']">Change password</a></li>
+              <li><a *ngIf=" isuservalid" href="#" (click)="logout()">Logout</a></li>
+             
+            </ul>
+          </li>      
+      </ul>
+    </div>
+  </nav>
